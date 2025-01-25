@@ -7,6 +7,8 @@ import heroImg02 from '../assets/images/hero-img02.jpg';
 import heroVideo from '../assets/images/hero-video.mp4';
 import Subtitle from './../shared/Subtitle';
 
+import SearchBar from "../shared/SearchBar";
+
 const Home = () => {
     return <>
 
@@ -25,10 +27,37 @@ const Home = () => {
                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus temporibus libero, voluptas, laboriosam quos impedit incidunt ratione corporis dolorem natus eum eius! Vel?</p>
                         </div>
                     </Col>
+                    <Col lg='2'>
+                        <div className="hero__img-box">
+                            <img src={heroImg} alt="" />
+                        </div>
+                    </Col>
+                    <Col lg='2'>
+                        <div className="hero__img-box mt-4">
+                            <video src={heroVideo} alt="" autoPlay loop muted/>
+                        </div>
+                    </Col>
+                    <Col lg='2'>
+                        <div className="hero__img-box mt-5">
+                            <img src={heroImg02} alt="" />
+                        </div>
+                    </Col>
+
+                    <SearchBar />
                 </Row>
             </Container>
         </section>
         {/* ======= hero section end ======= */}
+        <section>
+            <Container>
+                <Row>
+                    <Col lg='3'>
+                    <h5 className="services__subtitle">What we serve</h5>
+                    <h2 className="services__title">We offer our best services</h2>
+                    </Col>
+                </Row>
+            </Container>
+        </section>
     </>
 };
 
