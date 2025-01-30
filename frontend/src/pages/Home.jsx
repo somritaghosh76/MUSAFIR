@@ -1,15 +1,19 @@
 import React from "react";
 import '../styles/home.css';
+
 import { Container, Row, Col } from 'reactstrap';
 import worldImg from '../assets/images/world.png';
 import heroImg from '../assets/images/hero-img01.jpg';
 import heroImg02 from '../assets/images/hero-img02.jpg';
 import heroVideo from '../assets/images/hero-video.mp4';
+import experienceImg from "../assets/images/experience.png"
+
 import Subtitle from './../shared/Subtitle';
 
 import SearchBar from "../shared/SearchBar";
 import ServiceList from "../services/ServiceList";
 import FeaturedTourList from "../components/Featured-tours/FeaturedTourList";
+import MasonryImagesGallery from "../components/Image-gallery/MasonryImagesGallery";
 
 const Home = () => {
     return (
@@ -67,18 +71,74 @@ const Home = () => {
             <section>
                 <Container>
                     <Row>
-                        <Col lg="12" className="mb-5" >                                
+                        <Col lg="12" className="mb-5" >
                             <Subtitle subtitle={'Explore'} />
                             <h2 className="featured__tour-title">Our Featured Tours</h2>
                         </Col>
-                        <FeaturedTourList/>
+                        <FeaturedTourList />
                     </Row>
                 </Container>
             </section>
             {/* ======= featured tour section end ======= */}
             {/* ======= experience section start ======= */}
-            
+            <section>
+                <Container>
+                    <Row>
+                        <Col lg="6">
+                            <div className="experience__content">
+                                <Subtitle subtitle={'Experience'} />
+                                <h2>With all our experience <br /> we will serve you</h2>
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                                    <br />
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                </p>
+                            </div>
+                            <div className="counter__wrapper d-flex align-items-centre gap-5">
+                                <div className="counter__box">
+                                    <span>12k+</span>
+                                    <h6>Successful Trip</h6>
+                                </div>
+                                <div className="counter__box">
+                                    <span>2k+</span>
+                                    <h6>Regular Clients</h6>
+                                </div>
+                                <div className="counter__box">
+                                    <span>15</span>
+                                    <h6>Years Experience</h6>
+                                </div>
+                            </div>
+                        </Col>
+                        <Col lg="6">
+                            <div className="experience__img">
+                                <img src={experienceImg} alt="" />
+                            </div>
+                        </Col>
+                    </Row>
+                </Container>
+            </section>
             {/* ======= experience section end ======= */}
+
+            {/* ======= gallery section start ======= */}
+            <section>
+                <Container>
+                    <Row>
+                        <Col lg="12">
+                            <Subtitle subtitle={'Gallery'} />
+                            <h2 className="gallery__title">
+                                Visit Our Customers tour gallery
+                            </h2>
+                        </Col>
+                        <Col lg="12">
+                            <MasonryImagesGallery />
+                        </Col>
+                    </Row>
+                </Container>
+            </section>
+            {/* ======= gallery section end ======= */}
+            
+            {/* ======= testimonial section start ======= */}
+
+            {/* ======= testimonial section end ======= */}
         </>
     );
 };
