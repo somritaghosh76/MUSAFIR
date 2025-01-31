@@ -15,6 +15,7 @@ import ServiceList from "../services/ServiceList";
 import FeaturedTourList from "../components/Featured-tours/FeaturedTourList";
 import MasonryImagesGallery from "../components/Image-gallery/MasonryImagesGallery";
 import Testimonials from "../components/Testimonials/Testimonials";
+import Newsletter from "../shared/Newsletter";
 
 const Home = () => {
     return (
@@ -136,7 +137,7 @@ const Home = () => {
                 </Container>
             </section>
             {/* ======= gallery section end ======= */}
-            
+
             {/* ======= testimonial section start ======= */}
             <section>
                 <Container>
@@ -146,12 +147,13 @@ const Home = () => {
                             <h2 className="testimonial__title">What our fans say about us</h2>
                         </Col>
                         <Col lg="12">
-                            <Testimonials/>     
+                            <Testimonials />
                         </Col>
                     </Row>
                 </Container>
             </section>
             {/* ======= testimonial section end ======= */}
+            <Newsletter />
         </>
     );
 };
