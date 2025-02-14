@@ -59,7 +59,7 @@ export const deleteTour = async (req, res) => {
 export const getSingleTour = async (req, res) => {
     const id = req.params.id;
     try {
-        const tour = await Tour.findById(id);
+        const tour = await Tour.findById(id).populate('reviews');
         if (!tour) {
             return res.status(404).json({
                 success: false,
@@ -83,7 +83,9 @@ export const getSingleTour = async (req, res) => {
 export const getAllTour = async (req, res) => {
     const page = parseInt(req.query.page) || 0;
     try {
-        const tours = await Tour.find({}).skip(page * 8).limit(8);
+        const tours = await Tour.find({}).populate('reviews')
+            .skip(page * 8).limit(8);
+
         res.status(200).json({
             success: true,
             count: tours.length,
@@ -101,7 +103,7 @@ export const getAllTour = async (req, res) => {
 //Get Tour By Search
 export const getTourBySearch = async (req, res) => {
     const city = new RegExp(req.query.city, 'i'); //here 'i' means case sensitive
-    const distance = parseInt(req.query.distance) || 0; 
+    const distance = parseInt(req.query.distance) || 0;
     const maxGroupSize = parseInt(req.query.maxGroupSize) || 0;
 
     try {
@@ -110,7 +112,7 @@ export const getTourBySearch = async (req, res) => {
             city,
             distance: { $gte: distance },
             maxGroupSize: { $gte: maxGroupSize },
-        });
+        }).populate('reviews');
 
         res.status(200).json({
             success: true,
@@ -128,7 +130,7 @@ export const getTourBySearch = async (req, res) => {
 //get featured tours
 export const getFeaturedTour = async (req, res) => {
     try {
-        const tours = await Tour.find({featured:true}).limit(8);
+        const tours = await Tour.find({ featured: true }).populate('reviews').limit(8);
         res.status(200).json({
             success: true,
             message: 'Successfully fetched',
@@ -143,11 +145,11 @@ export const getFeaturedTour = async (req, res) => {
 };
 
 //get tour counts
-export const getTourCount = async (req,res) => {
+export const getTourCount = async (req, res) => {
     try {
         const tourCount = await Tour.estimatedDocumentCount();
-        res.status(200).json({success:true, data:tourCount});
+        res.status(200).json({ success: true, data: tourCount });
     } catch (err) {
-        res.status(500).json({success:false, message: "Failed to fetch!" });
+        res.status(500).json({ success: false, message: "Failed to fetch!" });
     }
 }
