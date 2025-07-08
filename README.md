@@ -22,7 +22,7 @@ MUSAFIR is a Tourism Management System that simplifies the process of managing b
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/KanishMittal/MUSAFIR.git
+    git clone https://github.com/somritaghosh76/MUSAFIR.git
     ```
 2. Navigate to the project directory:
     ```bash
